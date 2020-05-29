@@ -8,7 +8,8 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |Master (K8s Cluster) | Masters manage the cluster and the nodes that are used to host the running applications |
 |Node (K8s Cluster) | A node is a worker machine in Kubernetes and may be a VM or physical machine, depending on the cluster. Multiple Pods can run on one Node |
 |Deployment |A Deployment is responsible for creating and updating instances of your application |
-|Service |A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods|
+|Service |A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods |
+|Scaling | Scaling is accomplished by changing the number of replicas in a Deployment |
 ### Create Kubernetes Cluster
 ```console
 minikube start
@@ -68,4 +69,18 @@ kubectl label pod $POD_NAME app=v1
 kubectl get pods -l app=v1
 # delete service
 kubectl delete service -l run=kubernetes-bootcamp
+```
+### Scaling a Deployment
+```console
+# see the ReplicaSet created by the Deployment
+kubectl get rs
+# scale the Deployment to 4 replicas
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+# check if the number of Pods changed
+kubectl get pods -o wide
+# Nr of pods, exposed IP and Port can be checked with describe command...
+# if every request hits a different Pod, LoadBalancing works...
+curl $(minikube ip):$NODE_PORT
+# scale down
+kubectl scale deployments/kubernetes-bootcamp --replicas=2
 ```
