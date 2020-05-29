@@ -8,6 +8,7 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |Master (K8s Cluster) | Masters manage the cluster and the nodes that are used to host the running applications |
 |Node (K8s Cluster) | A node is a worker machine in Kubernetes and may be a VM or physical machine, depending on the cluster. Multiple Pods can run on one Node |
 |Deployment |A Deployment is responsible for creating and updating instances of your application |
+|Service |A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods|
 ### Create Kubernetes Cluster
 ```console
 minikube start
@@ -44,4 +45,27 @@ kubectl get logs $POD_NAME
 kubectl exec $POD_NAME env
 # start bash session...
 kubectl exec -ti $POD_NAME bash
+```
+### Using a Service to Expose Your App
+```console
+# list services
+kubectl get services
+# expose to external traffic
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+# view open port
+kubectl describe services/kubernetes-bootcamp # NODE_PORT=32385
+# test that the app is exposed outside of the cluster
+curl $(minikube ip):$NODE_PORT
+# see the name of the label
+kubectl describe deployment
+# use this label to query our list of Pods
+kubectl get pods -l run=kubernetes-bootcamp
+# the same to list the existing services
+kubectl get services -l run=kubernetes-bootcamp
+# apply a new label
+kubectl label pod $POD_NAME app=v1
+# query the list of pods using the new label
+kubectl get pods -l app=v1
+# delete service
+kubectl delete service -l run=kubernetes-bootcamp
 ```
