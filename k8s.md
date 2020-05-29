@@ -11,7 +11,7 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |Service |A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods |
 |Scaling | Scaling is accomplished by changing the number of replicas in a Deployment |
 ### Create Kubernetes Cluster
-```console
+```bash
 minikube start
 minikube version
 kubectl version
@@ -19,7 +19,7 @@ kubectl cluster-info
 kubectl get nodes
 ```
 ### Deploy an App
-```console
+```bash
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 kubectl get deployments
 # open a second terminal window to run the proxy
@@ -35,7 +35,7 @@ kubectl get po
 - `kubectl logs` - print the logs from a container in a pod
 - `kubectl exec` - execute a command on a container in a pod
 ### Explore Your App
-```console
+```bash
 # view containers inside pod
 kubectl describe pods
 # see output of application
@@ -48,7 +48,7 @@ kubectl exec $POD_NAME env
 kubectl exec -ti $POD_NAME bash
 ```
 ### Using a Service to Expose Your App
-```console
+```bash
 # list services
 kubectl get services
 # expose to external traffic
@@ -71,7 +71,7 @@ kubectl get pods -l app=v1
 kubectl delete service -l run=kubernetes-bootcamp
 ```
 ### Scaling a Deployment
-```console
+```bash
 # see the ReplicaSet created by the Deployment
 kubectl get rs
 # scale the Deployment to 4 replicas
