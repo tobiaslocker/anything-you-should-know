@@ -1,3 +1,4 @@
+### Glossary
 |Name | Description |
 |-----|-------------|
 |Minikube | A small-scale local deployment of Kubernetes that can run anywhere.
