@@ -1,7 +1,7 @@
 ## Kubernetes Basics
 Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 ### Glossary
-|Name | Description |
+|Term | Description |
 |-----|-------------|
 |Minikube | A small-scale local deployment of Kubernetes that can run anywhere.
 |Pod | A Pod is a Kubernetes abstraction that represents a group of one or more application containers |
@@ -10,6 +10,7 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |Deployment |A Deployment is responsible for creating and updating instances of your application |
 |Service |A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods |
 |Scaling | Scaling is accomplished by changing the number of replicas in a Deployment |
+|Rolling Updates | Rolling updates allow Deployments' update to take place with zero downtime by incrementally updating Pods instances with new ones |
 ### Create Kubernetes Cluster
 ```bash
 minikube start
@@ -83,4 +84,19 @@ kubectl get pods -o wide
 curl $(minikube ip):$NODE_PORT
 # scale down
 kubectl scale deployments/kubernetes-bootcamp --replicas=2
+```
+### Updating Your App
+```bash
+# view current image version (Image field)
+kubectl describe pods | grep Image:
+# update image
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+# check status of new Pods, and view old one terminating
+kubectl get pods
+# get exposed IP and Port with describe service... (see above)
+curl $(minikube ip):$NODE_PORT # v=1 is now v=2
+# confirm update
+kubectl rollout status deployments/kubernetes-bootcamp
+# revert the deployment to previous known state
+kubectl rollout undo deployments/kubernetes-bootcamp
 ```
