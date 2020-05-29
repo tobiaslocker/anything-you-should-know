@@ -7,6 +7,7 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |Pod | A Pod is a Kubernetes abstraction that represents a group of one or more application containers |
 |Master (K8s Cluster) | Masters manage the cluster and the nodes that are used to host the running applications |
 |Node (K8s Cluster) | A node is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster |
+|Deployment |A Deployment is responsible for creating and updating instances of your application |
 ### Create Kubernetes Cluster
 ```console
 minikube start
@@ -19,6 +20,8 @@ kubectl get nodes
 ```console
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 kubectl get deployments
+# open a second terminal window to run the proxy
+kubectl proxy
 curl http://localhost:8001/version
 kubectl get po
 ```
