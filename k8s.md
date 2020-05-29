@@ -5,4 +5,8 @@
 ### Create Kubernetes Cluster
 ```console
 minikube start
+minikube version
+kubectl version
+kubectl cluster-info
+kubectl get nodes
 ```
