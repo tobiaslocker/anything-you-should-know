@@ -13,3 +13,10 @@ kubectl version
 kubectl cluster-info
 kubectl get nodes
 ```
+### Deploy an App
+```console
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl get deployments
+curl http://localhost:8001/version
+kubectl get po
+```
