@@ -32,3 +32,17 @@ kubectl get po
 - `kubectl describe` - show detailed information about a resource
 - `kubectl logs` - print the logs from a container in a pod
 - `kubectl exec` - execute a command on a container in a pod
+### Explore Your App
+```console
+# view containers inside pod
+kubectl describe pods
+# start proxy as above...
+# see output of application
+curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
+# retrieve logs
+kubectl get logs $POD_NAME
+# list environment variables
+kubectl exec $POD_NAME env
+# start bash session...
+kubectl exec -ti $POD_NAME bash
+```
