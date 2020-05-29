@@ -5,6 +5,8 @@ Notes from [Learn Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubern
 |-----|-------------|
 |Minikube | A small-scale local deployment of Kubernetes that can run anywhere.
 |Pod | A Pod is a Kubernetes abstraction that represents a group of one or more application containers |
+|Master (K8s Cluster) | Masters manage the cluster and the nodes that are used to host the running applications |
+|Node (K8s Cluster) | A node is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster |
 ### Create Kubernetes Cluster
 ```console
 minikube start
