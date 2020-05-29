@@ -27,7 +27,7 @@ curl http://localhost:8001/version
 # to get the pod name...
 kubectl get po
 ```
-### Troubleshooting with kubectl
+##### Troubleshooting with kubectl
 - `kubectl get` - list resources
 - `kubectl describe` - show detailed information about a resource
 - `kubectl logs` - print the logs from a container in a pod
