@@ -36,7 +36,6 @@ kubectl get po
 ```console
 # view containers inside pod
 kubectl describe pods
-# start proxy as above...
 # see output of application
 curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
 # retrieve logs
