@@ -1,5 +1,5 @@
-##### mkdir & cd
+##### Make a new directory and change into it
+needs quotes for dirname with spaces, we don't do that...
 ```console
-# needs quotes for dirname with spaces, we don't do that...
 $ mkdir foo && cd $_ 
 ```
