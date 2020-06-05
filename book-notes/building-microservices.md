@@ -21,6 +21,30 @@
 |Autonomy |Find the right balance between standardizing and enabling autonomy for your teams|
 |Governance |Ensure that the system being implemented fits the technical vision|
 
+### Chapter 4: Integration
+
+#### Rest
+
+> Most important is the concept of resources. You can think of a resource as a thing that the service itself knows about, like a Customer.
+
+##### Hypermedia As the Engine of Application State
+
+> Another principle introduced in REST that can help us avoid the coupling between client and server is the concept of hypermedia as the engine of application state (often abbreviated as HATEOAS, and boy, did it need an abbreviation)
+
+##### A Hybrid Approach
+
+> My clients often struggle with the question “Should I build, or should I buy?” In general, the advice I and my colleagues give when having this conversation with the average enterprise organization boils down to “Build if it is unique to what you do, and can be considered a strategic asset; buy if your use of the tool isn’t that special.”
+
+#### Summary
+
+> Summary We’ve looked at a number of different options around integration, and I’ve shared my thoughts on what choices are most likely to ensure our microservices remain as decoupled as possible from their other collaborators:
+
+- Avoid database integration at all costs.
+- Understand the trade-offs between REST and RPC, but strongly consider REST as a good starting point for request/response integration.
+- Prefer choreography over orchestration.
+- Avoid breaking changes and the need to version by understanding Postel’s Law and using tolerant readers.
+- Think of user interfaces as compositional layers.
+
 ### Quotes
 
 > Which is also why I view most forms of IT certification as worthless, as we know so little about what good looks like.
@@ -30,3 +54,7 @@
 > "be worried about what happens between the boxes, and be liberal in what happens inside"
 
 > ...I called this onion architecture, as it had lots of layers and made me cry when we had to cut through it.
+
+> ...short-term gain for long-term pain...
+
+> “Be conservative in what you do, be liberal in what you accept from others.” - Postel’s Law (otherwise known as the robustness principle)
