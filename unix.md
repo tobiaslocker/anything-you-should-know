@@ -7,5 +7,5 @@ $ mkdir foo && cd $_
 
 ### Check processes that listen on port (e.g. 80)
 ```console
-sudo lsof -i -P -n | grep 80
+$ sudo lsof -i -P -n | grep 80
 ```
