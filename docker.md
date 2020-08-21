@@ -3,3 +3,8 @@
 ```console
 $ docker-compose run backend env
 ```
+
+### Update single container
+```console
+$ docker-compose up --no-deps --build service_name
+```
